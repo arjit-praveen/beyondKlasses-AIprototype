@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>API test</title>
+</head>
+<body>
+    <h2>What would you like to learn to draw?</h2>
+    <input type="text" id="inputBox" />
+    <button onclick="fetchImages()">Fetch Images</button>
+    <div id="imageContainer"></div>
+
+    <script>
+        async function fetchImages() {
+            const input = document.getElementById("inputBox").value;
+
+            const response = await fetch("http://127.0.0.1:5000/get-images", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ input: input })
+            });
+
+            const data = await response.json();
+            const container = document.getElementById("imageContainer");
+            container.innerHTML = "";
+
+        // Show name and description
+            const title = document.createElement("h3");
+            title.textContent = data.name;
+            container.appendChild(title);
+
+            const desc = document.createElement("p");
+            desc.textContent = data.description;
+            container.appendChild(desc);
+
+        // Show images and step text
+            data.steps.forEach(step => {
+                const stepDiv = document.createElement("div");
+                // stepDiv.className = "step-item"; //
+                stepDiv.style.marginBottom = "1rem";
+
+                const img = document.createElement("img");
+                img.src = step.imageUrl;
+                img.width = 200;
+
+                const caption = document.createElement("p");
+                caption.textContent = `Step ${step.stepNumber}: ${step.steps}`;
+
+                stepDiv.appendChild(caption);
+                stepDiv.appendChild(img);
+                
+                container.appendChild(stepDiv);
+            });
+        }
+    </script>
+
+</body>
+</html>
