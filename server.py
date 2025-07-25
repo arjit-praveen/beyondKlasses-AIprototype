@@ -19,14 +19,13 @@ def get_images():
         "name": input_string,
         "description": f"Learn how to draw a {input_string.lower()} in 4 easy steps.",
         "steps": [
-            {"stepNumber": 1, "imageUrl": "/uploads/step1.png", "steps": "Draw a rough shape"},
-            {"stepNumber": 2, "imageUrl": "/uploads/step2.png", "steps": "Add details"},
-            {"stepNumber": 3, "imageUrl": "/uploads/step3.png", "steps": "Refine the outline"},
-            {"stepNumber": 4, "imageUrl": "/uploads/step4.png", "steps": "Color it in"},
+            {"stepNumber": 1, "imageUrl": "/uploads/apple/step1.png", "steps": "Draw a rough shape"},
+            {"stepNumber": 2, "imageUrl": "/uploads/apple/step2.png", "steps": "Add details"},
+            {"stepNumber": 3, "imageUrl": "/uploads/apple/step3.png", "steps": "Refine the outline"},
+            {"stepNumber": 4, "imageUrl": "/uploads/apple/step4.png", "steps": "Color it in"},
         ]
     }
 
-    # print(jsonify(response))
     return jsonify(response)
 
 if __name__ == "__main__":

@@ -8,6 +8,9 @@ async function fetchImages() {
         body: JSON.stringify({ input: input })
     });
 
+    // debug
+    console.log(response)
+
     const data = await response.json();
     const container = document.getElementById("imageContainer");
     container.innerHTML = "";
