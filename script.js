@@ -27,14 +27,16 @@ async function fetchImages() {
     // Show images and Step text
     data.steps.forEach(step => {
         const stepDiv = document.createElement("div");
-        stepDiv.style.marginBottom = "1rem";
-
-        const img = document.createElement("img");
-        img.src = step.imageUrl;
-        img.width = 200;
+        stepDiv.className = "step-card";
 
         const caption = document.createElement("p");
         caption.textContent = `Step ${step.stepNumber}: ${step.steps}`;
+        caption.className = "step-title";
+
+        const img = document.createElement("img");
+        img.src = step.imageUrl;
+        img.alt = `Step ${step.stepNumber} - ${step.steps}`;
+        img.className = "step-image";
 
         stepDiv.appendChild(caption);
         stepDiv.appendChild(img);

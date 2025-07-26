@@ -4,13 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>API test</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Learn to Draw - AI Tutorial Generator</title>
 </head>
 <body>
-    <h2>What would you like to learn to draw?</h2>
-    <input type="text" id="inputBox" />
-    <button onclick="fetchImages()">Fetch Images</button>
-    <div id="imageContainer"></div>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">🎨 Learn to Draw</h1>
+            <p class="subtitle">Discover step-by-step drawing tutorials powered by AI</p>
+        </header>
+
+        <main class="main-content">
+            <div class="search-section">
+                <div class="search-container">
+                    <input type="text" id="inputBox" placeholder="What would you like to learn to draw?" class="search-input" />
+                    <button onclick="fetchImages()" class="search-button">
+                        <span class="button-text">Generate Tutorial</span>
+                        <span class="button-icon">✨</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="imageContainer" class="tutorial-container"></div>
+        </main>
+    </div>
 
     <script src="script.js"></script>
 </body>
